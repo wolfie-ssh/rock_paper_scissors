@@ -20,7 +20,6 @@ function getComputerChoice() {
     return Choice;
 }
 
-
 function getHumanChoice() {
     let input = prompt("Enter Your Choice").toLowerCase();
     if (input == "rock" || input == "paper" || input == "scissors") {
@@ -29,7 +28,6 @@ function getHumanChoice() {
     else {alert("Invalid Input");}
     return input;
 }
-
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -49,7 +47,32 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let HumanChoice1 = getHumanChoice();
-let ComputerChoice1 = getComputerChoice();
+function playGame() {
 
-playRound(HumanChoice1, ComputerChoice1);
+    let humanChoice1 = getHumanChoice();
+    let computerChoice1 = getComputerChoice();
+    playRound(humanChoice1, computerChoice1);    
+
+    let humanChoice2 = getHumanChoice();
+    let computerChoice2 = getComputerChoice();
+    playRound(humanChoice2, computerChoice2);
+
+    let humanChoice3 = getHumanChoice();
+    let computerChoice3 = getComputerChoice();
+    playRound(humanChoice3, computerChoice3);
+
+    let humanChoice4 = getHumanChoice();
+    let computerChoice4 = getComputerChoice();
+    playRound(humanChoice4, computerChoice4);
+
+    let humanChoice5 = getHumanChoice();
+    let computerChoice5 = getComputerChoice();
+    playRound(humanChoice5, computerChoice5);
+}
+
+function printScore() {
+    console.log("Your Score is: ", humanScore + "\nComputer Score: ", computerScore);
+}
+
+playGame();
+printScore();
