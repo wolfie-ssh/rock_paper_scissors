@@ -24,14 +24,18 @@ function getHumanChoice() {
     let input = prompt("Enter Your Choice").toLowerCase();
     if (input == "rock" || input == "paper" || input == "scissors") {
         console.log("User Entered: ", input);
+        return input;
     }
-    else {alert("Invalid Input");}
+    else {
+        alert("Invalid Input");
+        return getHumanChoice();
+    }
     return input;
 }
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        console.log("Try Again");
+        console.log("Tis A Tie");
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "scissors" && computerChoice === "paper") ||
