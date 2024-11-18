@@ -49,6 +49,8 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+/*
+//Logic to Play Five Games
 function playGame() {
 
     let humanChoice1 = getHumanChoice();
@@ -71,7 +73,7 @@ function playGame() {
     let computerChoice5 = getComputerChoice();
     playRound(humanChoice5, computerChoice5);
 }
-
+*/
 function printScore() {
     console.log("Your Score is: ", humanScore + "\nComputer Score: ", computerScore);
 }
