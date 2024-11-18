@@ -20,6 +20,7 @@ function getComputerChoice() {
     return Choice;
 }
 
+/*
 function getHumanChoice() {
     let input = prompt("Enter Your Choice").toLowerCase();
     if (input == "rock" || input == "paper" || input == "scissors") {
@@ -32,28 +33,29 @@ function getHumanChoice() {
     }
     return input;
 }
+*/
 
 function playRound(humanChoice, computerChoice) {
+    let roundResult = '';
+
     if (humanChoice === computerChoice) {
-        console.log("Tis A Tie");
+        roundResult = "Tis A Tie";
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "scissors" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "rock")
     ) {
-        console.log(`You Win! ${humanChoice} Beats ${computerChoice}`);
+        roundResult = `You Win! ${humanChoice} Beats ${computerChoice}`;
         humanScore++;
     } else {
-        console.log(`You Lose! ${computerChoice} Beats ${humanChoice}`);
+        roundResult = `You Lose! ${computerChoice} Beats ${humanChoice}`;
         computerScore++;
     }
+    updateResults(roundResult);
+    checkWinner();
 }
 
-function printScore() {
-    console.log("Your Score is: ", humanScore + "\nComputer Score: ", computerScore);
-}
-
-const btn_rock = document.querySelector("#btn_rock")
+const btn_rock = document.querySelector("#btn_rock");
 btn_rock.addEventListener("click", function() {
     const humanChoice = "rock";
     const computerChoice = getComputerChoice();
@@ -72,11 +74,43 @@ btn_scissors.addEventListener("click", function() {
     const humanChoice = "scissors";
     const computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
-} 
+});
 
-);
+const container = document.querySelector("#container");
+const resultsDiv = document.createElement("div");
+resultsDiv.setAttribute("id", "results");
+container.appendChild(resultsDiv);
 
+function updateResults (roundResult) {
+    resultsDiv.innerHTML = `
+    <p>${roundResult}</p>  <!-- Round outcome message -->
+    <p>Your Score: ${humanScore}</p>  <!-- Player score -->
+    <p>Computer Score: ${computerScore}</p>  <!-- Computer score -->
+    `
+}
+
+function checkWinner() {
+    if (humanScore === 5) {
+        resultsDiv.innerHTML += "<p>You win the game! Congratulations!</p>";
+        disableButtons(); // Disable buttons when game is over
+    } else if (computerScore === 5) {
+        resultsDiv.innerHTML += "<p>The computer wins the game. Better luck next time!</p>";
+        disableButtons(); // Disable buttons when game is over
+    }
+}
+
+function disableButtons() {
+    document.querySelector("#btn_rock").disabled = true;
+    document.querySelector("#btn_paper").disabled = true;
+    document.querySelector("#btn_scissors").disabled = true;
+}
+
+/*
 printScore();
+function printScore() {
+    console.log("Your Score is: ", humanScore + "\nComputer Score: ", computerScore);
+}
+*/
 
 /* 
 playGame();
