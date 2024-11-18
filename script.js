@@ -20,21 +20,6 @@ function getComputerChoice() {
     return Choice;
 }
 
-/*
-function getHumanChoice() {
-    let input = prompt("Enter Your Choice").toLowerCase();
-    if (input == "rock" || input == "paper" || input == "scissors") {
-        console.log("User Entered: ", input);
-        return input;
-    }
-    else {
-        alert("Invalid Input");
-        return getHumanChoice();
-    }
-    return input;
-}
-*/
-
 function playRound(humanChoice, computerChoice) {
     let roundResult = '';
 
@@ -105,14 +90,12 @@ function disableButtons() {
     document.querySelector("#btn_scissors").disabled = true;
 }
 
-/*
+/* 
 printScore();
 function printScore() {
     console.log("Your Score is: ", humanScore + "\nComputer Score: ", computerScore);
 }
-*/
 
-/* 
 playGame();
 // Logic to Play Five Games
 function playGame() {
@@ -136,5 +119,18 @@ function playGame() {
     let humanChoice5 = getHumanChoice();
     let computerChoice5 = getComputerChoice();
     playRound(humanChoice5, computerChoice5);
+}
+
+function getHumanChoice() {
+    let input = prompt("Enter Your Choice").toLowerCase();
+    if (input == "rock" || input == "paper" || input == "scissors") {
+        console.log("User Entered: ", input);
+        return input;
+    }
+    else {
+        alert("Invalid Input");
+        return getHumanChoice();
+    }
+    return input;
 }
 */
