@@ -49,8 +49,38 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-/*
-//Logic to Play Five Games
+function printScore() {
+    console.log("Your Score is: ", humanScore + "\nComputer Score: ", computerScore);
+}
+
+const btn_rock = document.querySelector("#btn_rock")
+btn_rock.addEventListener("click", function() {
+    const humanChoice = "rock";
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+} );
+
+const btn_paper = document.querySelector("#btn_paper");
+btn_paper.addEventListener("click", function() {
+    const humanChoice = "paper";
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+});
+
+const btn_scissors = document.querySelector("#btn_scissors");
+btn_scissors.addEventListener("click", function() {
+    const humanChoice = "scissors";
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+} 
+
+);
+
+printScore();
+
+/* 
+playGame();
+// Logic to Play Five Games
 function playGame() {
 
     let humanChoice1 = getHumanChoice();
@@ -74,9 +104,3 @@ function playGame() {
     playRound(humanChoice5, computerChoice5);
 }
 */
-function printScore() {
-    console.log("Your Score is: ", humanScore + "\nComputer Score: ", computerScore);
-}
-
-playGame();
-printScore();
